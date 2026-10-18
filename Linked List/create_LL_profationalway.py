@@ -28,6 +28,18 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
         
+    # insert in middle 
+    def insert_in_middle(self, data, target_value):
+        new_node = Node(data)
+        current = self.head
+        
+        while current.next is not None:
+            if current.data == target_value:
+                new_node.next = current.next
+                current.next = new_node
+            current = current.next
+                
+        
     def display(self):
         current = self.head
         
@@ -40,11 +52,16 @@ class LinkedList:
     
 ll = LinkedList()
 
+# passing value to add at the end of the list
 ll.append(20)
 ll.append(40)
 ll.append(50)
-
 ll.display()
 
+# passing value to add at the beggning of the list
 ll.prepend(10)
+ll.display()
+
+# passing value to adding middle of the list
+ll.insert_in_middle(30,20)
 ll.display()
