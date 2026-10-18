@@ -22,6 +22,12 @@ class LinkedList:
             
         current.next = new_node
         
+    # insert at the begning
+    def prepend(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        
     def display(self):
         current = self.head
         
@@ -35,7 +41,10 @@ class LinkedList:
 ll = LinkedList()
 
 ll.append(20)
-ll.append(30)
 ll.append(40)
+ll.append(50)
 
+ll.display()
+
+ll.prepend(10)
 ll.display()
