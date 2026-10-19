@@ -38,7 +38,19 @@ class LinkedList:
                 new_node.next = current.next
                 current.next = new_node
             current = current.next
-                
+            
+    def del_node_middle_LL(self,value):
+        current = self.head
+        prev = current
+        
+        while current.next is not None:
+            if current.data ==  value:
+                prev.next = current.next
+                break
+            else:
+                prev = current
+                current = current.next
+                             
         
     def display(self):
         current = self.head
@@ -56,12 +68,16 @@ ll = LinkedList()
 ll.append(20)
 ll.append(40)
 ll.append(50)
-ll.display()
+# ll.display()
 
 # passing value to add at the beggning of the list
 ll.prepend(10)
-ll.display()
+# ll.display()
 
 # passing value to adding middle of the list
 ll.insert_in_middle(30,20)
+ll.display()
+
+# Delete value from middle of the Linked list 
+ll.del_node_middle_LL(40)
 ll.display()
