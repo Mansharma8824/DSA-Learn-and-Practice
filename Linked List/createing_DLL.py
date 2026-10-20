@@ -35,7 +35,26 @@ class DoublyLinkedList:
         current.next = new_node
         new_node.prev = current
         
-        
+    def insert_in_middle(self,data,target):
+        new_node = Node(data)
+        # checking Linked list empty
+        if self.head == None:
+            self.head = new_node
+            return
+         
+        current = self.head
+        while current is not None:
+            if current.data == target:
+                new_node.next = current.next
+                new_node.prev = current
+                
+                if current.next is not None:
+                    current.next.prev = new_node
+                current.next = new_node
+                return
+            current = current.next
+
+        print("Target node not found")
         
     def display_list(self):
             current = self.head
@@ -53,4 +72,8 @@ Dll.insert_at_beggning(10)
 Dll.display_list()
 
 Dll.insert_at_end(20)
+Dll.insert_at_end(40)
+Dll.display_list()
+
+Dll.insert_in_middle(30,20)
 Dll.display_list()
