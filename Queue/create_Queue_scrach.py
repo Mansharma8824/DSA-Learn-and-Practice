@@ -16,6 +16,12 @@ class Queue:
         removed = self.item.pop(0)
         print(f"Removed {removed}")
         
+    def peak(self):
+        if self.isEmpty():
+            print("Queue is empty. Cannot dequeue.")
+            return None
+        return self.item[0]
+        
     def display_queue(self):
         if self.isEmpty():
             print("Queue is Empty")
@@ -33,9 +39,15 @@ q.enqueue(10)
 q.enqueue(20)
 q.enqueue(30)
 q.enqueue(40)
+print(q.peak())
 q.display_queue()
 
 q.dequeue()
+print(q.peak())
+q.display_queue()
+
+q.dequeue()
+print(q.peak())
 q.display_queue()
 
 
